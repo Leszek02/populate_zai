@@ -1,11 +1,7 @@
-from flask_scrypt import generate_password_hash, generate_random_salt
-
 import consts
 import csv
 import os
 import random
-import sys
-
 
 def generate_tickets():
     if os.path.exists(consts.TICKETS_CSV):
@@ -34,8 +30,8 @@ def generate_tickets():
                  1, # min_price
                  0, # max_price
                  True, # is_fee_absorbed
-                 "2025-04-04 17:57:19.312+00", # sales_starts_at
-                 "2025-11-11 00:00:00+00", # sales_ends_at
+                 "2025-04-04", # sales_starts_at
+                 "2025-11-11", # sales_ends_at
                  False, # is_hidden
                  1, # min_order
                  100, # max_order
@@ -51,13 +47,13 @@ def generate_tickets():
                  True, # is_description_visible
                  "free", # type
                  quantity, # quantity
-                 0, # position
+                 1, # position
                  None, # price
                  1, # min_price
                  0, # max_price
                  True, # is_fee_absorbed
-                 "2025-04-04 17:57:19.312+00", # sales_starts_at
-                 "2025-11-11 00:00:00+00", # sales_ends_at
+                 "2025-04-04", # sales_starts_at
+                 "2025-11-11", # sales_ends_at
                  False, # is_hidden
                  1, # min_order
                  100, # max_order
@@ -69,17 +65,17 @@ def generate_tickets():
             
             writer.writerow([  # Free, unlimited tickets
                  ticket_id, # id
-                 "Free_ticket", # name
+                 "Unlimited_ticket", # name
                  True, # is_description_visible
                  "free", # type
                  consts.INFINITE_TICKETS, # quantity
-                 0, # position
+                 2, # position
                  None, # price
                  1, # min_price
                  0, # max_price
                  True, # is_fee_absorbed
-                 "2025-04-04 17:57:19.312+00", # sales_starts_at
-                 "2025-11-11 00:00:00+00", # sales_ends_at
+                 "2025-04-04", # sales_starts_at
+                 "2025-11-11", # sales_ends_at
                  False, # is_hidden
                  1, # min_order
                  100, # max_order

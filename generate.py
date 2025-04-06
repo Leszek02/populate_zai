@@ -7,6 +7,7 @@ from users import generate_users
 from events import generate_events
 from users_events_roles import generate_users_events_roles
 from tickets import generate_tickets
+from custom_forms import generate_custom_forms
 
 
 def parse() -> argparse.ArgumentParser:
@@ -49,6 +50,13 @@ def parse() -> argparse.ArgumentParser:
         help="Generate 'tickets' table."
     )
 
+    parser.add_argument(
+        "--custom_forms", "-cf",
+        action="store_true",
+        default=False,
+        help="Generate 'custom_forms' table."
+    )
+
     return parser
 
 
@@ -64,6 +72,7 @@ if __name__ == "__main__":
         generate_events(fake)
         generate_users_events_roles()
         generate_tickets()
+        generate_custom_forms()
     else:
         if args.users:
             generate_users(fake)
@@ -73,4 +82,6 @@ if __name__ == "__main__":
             generate_users_events_roles()
         if args.tickets:
             generate_tickets()
+        if args.custom_forms:
+            generate_custom_forms()
         

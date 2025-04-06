@@ -4,6 +4,7 @@ USERS_CSV = "./csv/users_data.csv"
 EVENTS_CSV = "./csv/events_data.csv"
 USERS_EVENTS_ROLES_CSV = "./csv/users_events_roles_data.csv"
 TICKETS_CSV = "./csv/tickets_data.csv"
+CUSTOM_FORMS_CSV = "./csv/custom_forms_data.csv"
 
 
 # Data headers
@@ -12,17 +13,20 @@ USERS_HEADERS = ["id", "_email", "_password", "reset_password", "salt", "is_supe
 
 EVENTS_HEADERS = ["id", "identifier", "name", "starts_at", "ends_at", "timezone", "online", "latitude", "longitude", "stream_loop",
                   "stream_autoplay", "is_featured", "is_promoted", "is_demoted", "is_chat_enabled", "is_videoroom_enabled", 
-                  "is_document_enabled", "show_remaining_tickets", "is_map_shown", "has_owner_info", "is_sessions_speakers_enabled",
-                  "is_cfs_enabled", "privacy", "state", "is_announced", "schedule_published_on", "is_ticketing_enabled", "is_donation_enabled",
-                  "is_ticket_form_enabled", "is_badges_enabled", "payment_country", "payment_currency", "is_tax_enabled", "is_billing_info_mandatory",
-                  "can_pay_by_paypal", "can_pay_by_cheque", "can_pay_by_bank", "can_pay_by_invoice", "can_pay_onsite", "can_pay_by_omise",
-                  "can_pay_by_alipay", "can_pay_by_paytm", "onsite_details", "created_at", "pentabarf_url", "ical_url", "xcal_url",
-                  "is_sponsors_enabled", "is_stripe_linked"]
+                  "is_document_enabled", "description", "after_order_message", "show_remaining_tickets", "is_map_shown", "has_owner_info", 
+                  "is_sessions_speakers_enabled", "is_cfs_enabled", "privacy", "state", "is_announced", "schedule_published_on", 
+                  "is_ticketing_enabled", "is_donation_enabled", "is_ticket_form_enabled", "is_badges_enabled", "payment_country", 
+                  "payment_currency", "is_tax_enabled", "is_billing_info_mandatory", "can_pay_by_paypal", "can_pay_by_cheque", "can_pay_by_bank", 
+                  "can_pay_by_invoice", "can_pay_onsite", "can_pay_by_omise", "can_pay_by_alipay", "can_pay_by_paytm", "onsite_details", 
+                  "created_at", "pentabarf_url", "ical_url", "xcal_url", "is_sponsors_enabled", "is_stripe_linked"]
 
 USERS_EVENTS_ROLES_HEADERS = ["id", "event_id", "user_id", "role_id"]
 
 TICKETS_HEADERS = ["id", "name", "is_description_visible", "type", "quantity", "position", "price", "min_price", "max_price", "is_fee_absorbed",
                    "sales_starts_at", "sales_ends_at", "is_hidden", "min_order", "max_order", "is_checkin_restricted", "auto_checkin_enabled", "event_id"]
+
+CUSTOM_FORMS_HEADERS = ["id", "field_identifier", "form", "type", "name", "is_required", "is_included", "is_fixed", "position", "is_public", 
+                        "is_complex", "event_id", "min", "max", "is_allow_edit"]
 
 
 # Users parameters

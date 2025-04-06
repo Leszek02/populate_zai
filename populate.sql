@@ -6,7 +6,7 @@ COPY users (id, _email, _password, reset_password, salt, is_super_admin, is_admi
 
 COPY events (id, identifier, name, starts_at, ends_at, timezone, online, latitude, longitude, stream_loop,
                   stream_autoplay, is_featured, is_promoted, is_demoted, is_chat_enabled, is_videoroom_enabled, 
-                  is_document_enabled, show_remaining_tickets, is_map_shown, has_owner_info, is_sessions_speakers_enabled,
+                  is_document_enabled, description, after_order_message, show_remaining_tickets, is_map_shown, has_owner_info, is_sessions_speakers_enabled,
                   is_cfs_enabled, privacy, state, is_announced, schedule_published_on, is_ticketing_enabled, is_donation_enabled,
                   is_ticket_form_enabled, is_badges_enabled, payment_country, payment_currency, is_tax_enabled, is_billing_info_mandatory,
                   can_pay_by_paypal, can_pay_by_cheque, can_pay_by_bank, can_pay_by_invoice, can_pay_onsite, can_pay_by_omise, 
@@ -17,3 +17,6 @@ COPY users_events_roles (id, event_id, user_id, role_id) FROM '/csv/users_events
 
 COPY tickets (id, name, is_description_visible, type, quantity, position, price, min_price, max_price, is_fee_absorbed,
                    sales_starts_at, sales_ends_at, is_hidden, min_order, max_order, is_checkin_restricted, auto_checkin_enabled, event_id) FROM '/csv/tickets_data.csv' CSV HEADER;
+
+COPY custom_forms (id, field_identifier, form, type, name, is_required, is_included, is_fixed, position, is_public, 
+                        is_complex, event_id, min, max, is_allow_edit) FROM '/csv/custom_forms_data.csv' CSV HEADER;

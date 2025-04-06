@@ -1,5 +1,3 @@
-from flask_scrypt import generate_password_hash, generate_random_salt
-
 import consts
 import math
 import csv

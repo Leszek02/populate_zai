@@ -1,5 +1,3 @@
-from flask_scrypt import generate_password_hash, generate_random_salt
-
 import consts
 import faker
 import csv
@@ -34,6 +32,8 @@ def generate_events(fake: faker.Faker):
                 False, # is_chat_enabled
                 False, # is_videoroom_enabled
                 True, # is_document_enabled
+                "Event description",
+                "Thanks for buying",
                 False, # show_remaining_tickets
                 True, # is_map_shown
                 False, # has_owner_info
