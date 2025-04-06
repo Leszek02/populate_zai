@@ -13,4 +13,7 @@ COPY events (id, identifier, name, starts_at, ends_at, timezone, online, latitud
                   can_pay_by_alipay, can_pay_by_paytm, onsite_details, created_at, pentabarf_url, ical_url, xcal_url, 
                   is_sponsors_enabled, is_stripe_linked) FROM '/csv/events_data.csv' CSV HEADER;
 
-COPY users_events_roles (id, event_id, user_id, role_id) FROM '/csv/users_events_roles.csv' CSV HEADER;
+COPY users_events_roles (id, event_id, user_id, role_id) FROM '/csv/users_events_roles_data.csv' CSV HEADER;
+
+COPY tickets (id, name, is_description_visible, type, quantity, position, price, min_price, max_price, is_fee_absorbed,
+                   sales_starts_at, sales_ends_at, is_hidden, min_order, max_order, is_checkin_restricted, auto_checkin_enabled, event_id) FROM '/csv/tickets_data.csv' CSV HEADER;
