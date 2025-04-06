@@ -5,18 +5,20 @@ import os
 import random
 
 
-def generate_events(fake: faker.Faker):
+def generate_events(fake: faker.Faker) -> list:
     if os.path.exists(consts.EVENTS_CSV):
         os.remove(consts.EVENTS_CSV)
     with open(consts.EVENTS_CSV, "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(consts.EVENTS_HEADERS)
-        for i in range(1, consts.events_num + 1):
+        custom_hex = []
+        for i in range(1, consts.EVENTS_NUM + 1):
             random_words = fake.words(random.randrange(2, 6))
             title = ''.join(word + " " for word in random_words)
+            custom_hex.append(fake.hexify(text='^^^^^^^^'))
             writer.writerow([
                 i, # id
-                fake.hexify(text='^^^^^^^^'), # identifier
+                custom_hex[i-1], # identifier
                 title, # name
                 "2025-11-11", # starts_at
                 "2025-11-15", # ends_at
@@ -67,3 +69,4 @@ def generate_events(fake: faker.Faker):
                 False, # is_sponsors_enabled
                 False, # is_stripe_linked
             ])
+        return custom_hex

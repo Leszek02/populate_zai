@@ -10,7 +10,7 @@ def generate_users_events_roles():
     with open(consts.USERS_EVENTS_ROLES_CSV, "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(consts.USERS_EVENTS_ROLES_HEADERS)
-        for i in range(1, consts.events_num + 1):
+        for i in range(1, consts.EVENTS_NUM + 1):
             if i <= consts.BIG_ORGANIZERS_NUM * consts.CONCERTS_PER_BIG:
                 account = math.ceil(i / consts.CONCERTS_PER_BIG) - 1
             else:

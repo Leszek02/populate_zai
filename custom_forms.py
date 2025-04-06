@@ -10,7 +10,7 @@ def generate_custom_forms():
     with open(consts.CUSTOM_FORMS_CSV, "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(consts.CUSTOM_FORMS_HEADERS)
-        for i in range(1, consts.events_num + 1):
+        for i in range(1, consts.EVENTS_NUM + 1):
              writer.writerow([
                   i,
                   "email",

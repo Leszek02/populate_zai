@@ -10,8 +10,8 @@ def generate_tickets():
         writer = csv.writer(file)
         writer.writerow(consts.TICKETS_HEADERS)
         helper = 0
-        ticket_id = 0
-        for i in range(1, consts.events_num + 1):
+        ticket_id = 1
+        for i in range(1, consts.EVENTS_NUM + 1):
             if i <= consts.BIG_ORGANIZERS_NUM * consts.CONCERTS_PER_BIG:
                 quantity = consts.BIG_ORGANIZERS_TICKETS[helper]
                 helper += 1

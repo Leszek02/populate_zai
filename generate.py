@@ -8,6 +8,8 @@ from events import generate_events
 from users_events_roles import generate_users_events_roles
 from tickets import generate_tickets
 from custom_forms import generate_custom_forms
+from discount_codes import generate_discount_codes
+from discount_codes_tickets import generate_discount_codes_tickets
 
 
 def parse() -> argparse.ArgumentParser:
@@ -69,10 +71,12 @@ if __name__ == "__main__":
 
     if args.custom:
         generate_users(fake)
-        generate_events(fake)
+        custom_hex = generate_events(fake)
         generate_users_events_roles()
         generate_tickets()
         generate_custom_forms()
+        generate_discount_codes(custom_hex)
+        generate_discount_codes_tickets()
     else:
         if args.users:
             generate_users(fake)

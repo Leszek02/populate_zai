@@ -1,10 +1,15 @@
 
+# Frontend URL
+API_HOST = "http://localhost:4200/" # Here same value as in .env API_HOST in open-event-frontend.
+
 # File names
 USERS_CSV = "./csv/users_data.csv"
 EVENTS_CSV = "./csv/events_data.csv"
 USERS_EVENTS_ROLES_CSV = "./csv/users_events_roles_data.csv"
 TICKETS_CSV = "./csv/tickets_data.csv"
 CUSTOM_FORMS_CSV = "./csv/custom_forms_data.csv"
+DISCOUNT_CODES_CSV = "./csv/discount_codes_data.csv"
+DISCOUNT_CODES_TICKETS_CSV = "./csv/discount_codes_tickets_data.csv"
 
 
 # Data headers
@@ -28,6 +33,11 @@ TICKETS_HEADERS = ["id", "name", "is_description_visible", "type", "quantity", "
 CUSTOM_FORMS_HEADERS = ["id", "field_identifier", "form", "type", "name", "is_required", "is_included", "is_fixed", "position", "is_public", 
                         "is_complex", "event_id", "min", "max", "is_allow_edit"]
 
+DISCOUNT_CODES_HEADERS = ["id", "code", "discount_url", "value", "type", "is_active", "tickets_number", "min_quantity", "max_quantity", "valid_from", 
+                          "valid_till", "event_id", "created_at", "marketer_id", "used_for"]
+
+DISCOUNT_CODES_TICKETS_HEADERS = ["discount_code_id", "ticket_id"]
+
 
 # Users parameters
 BIG_ORGANIZERS_NUM = 100
@@ -37,10 +47,10 @@ SMALL_ORGANIZERS_NUM = 250
 # Events parameters
 CONCERTS_PER_BIG = 10
 CONCERTS_PER_SMALL = 2
-events_num = BIG_ORGANIZERS_NUM * CONCERTS_PER_BIG + SMALL_ORGANIZERS_NUM * CONCERTS_PER_SMALL
+EVENTS_NUM = BIG_ORGANIZERS_NUM * CONCERTS_PER_BIG + SMALL_ORGANIZERS_NUM * CONCERTS_PER_SMALL
 
 
 # Tickets parameters
 BIG_ORGANIZERS_TICKETS = 4 * [50000] + 6 * [25000] # Hard coded number
 SMALL_ORGANIZERS_TICKETS = [1000, 10001] # Range to pick random number rounded to thousands
-INFINITE_TICKETS = pow(2, 31) - 1
+INFINITE_TICKETS = pow(2, 31) - 1 # Max int

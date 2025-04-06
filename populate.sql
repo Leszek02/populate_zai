@@ -20,3 +20,8 @@ COPY tickets (id, name, is_description_visible, type, quantity, position, price,
 
 COPY custom_forms (id, field_identifier, form, type, name, is_required, is_included, is_fixed, position, is_public, 
                         is_complex, event_id, min, max, is_allow_edit) FROM '/csv/custom_forms_data.csv' CSV HEADER;
+
+COPY discount_codes (id, code, discount_url, value, type, is_active, tickets_number, min_quantity, max_quantity, valid_from, 
+                          valid_till, event_id, created_at, marketer_id, used_for) FROM '/csv/discount_codes_data.csv' CSV HEADER;
+
+COPY discount_codes_tickets (discount_code_id, ticket_id) FROM '/csv/discount_codes_tickets_data.csv' CSV HEADER;
