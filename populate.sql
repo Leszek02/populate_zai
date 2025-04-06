@@ -1,0 +1,16 @@
+-- Clear all previously populated tables
+TRUNCATE users CASCADE;
+
+-- Populate users table
+COPY users (id, _email, _password, reset_password, salt, is_super_admin, is_admin, is_sales_admin, is_marketer, is_verified, is_blocked, is_profile_public, was_registered_with_order, created_at) FROM '/csv/users_data.csv' CSV HEADER;
+
+COPY events (id, identifier, name, starts_at, ends_at, timezone, online, latitude, longitude, stream_loop,
+                  stream_autoplay, is_featured, is_promoted, is_demoted, is_chat_enabled, is_videoroom_enabled, 
+                  is_document_enabled, show_remaining_tickets, is_map_shown, has_owner_info, is_sessions_speakers_enabled,
+                  is_cfs_enabled, privacy, state, is_announced, schedule_published_on, is_ticketing_enabled, is_donation_enabled,
+                  is_ticket_form_enabled, is_badges_enabled, payment_country, payment_currency, is_tax_enabled, is_billing_info_mandatory,
+                  can_pay_by_paypal, can_pay_by_cheque, can_pay_by_bank, can_pay_by_invoice, can_pay_onsite, can_pay_by_omise, 
+                  can_pay_by_alipay, can_pay_by_paytm, onsite_details, created_at, pentabarf_url, ical_url, xcal_url, 
+                  is_sponsors_enabled, is_stripe_linked) FROM '/csv/events_data.csv' CSV HEADER;
+
+COPY users_events_roles (id, event_id, user_id, role_id) FROM '/csv/users_events_roles.csv' CSV HEADER;
