@@ -1,6 +1,8 @@
-import faker
 from flask_scrypt import generate_password_hash, generate_random_salt
+from pathlib import Path
 from datetime import datetime
+
+import faker
 import argparse
 import csv
 import os
@@ -197,6 +199,8 @@ if __name__ == "__main__":
     parser = parse()
     args = parser.parse_args()
     fake = faker.Faker()
+
+    Path("./csv").mkdir(parents=True, exist_ok=True)
 
     if args.custom:
         generate_users(fake)
