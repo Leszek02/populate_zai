@@ -1,7 +1,7 @@
 -- Clear all previously populated tables
 TRUNCATE users CASCADE;
 
--- Populate users table
+-- Populate tables
 COPY users (id, _email, _password, reset_password, salt, is_super_admin, is_admin, is_sales_admin, is_marketer, is_verified, is_blocked, is_profile_public, was_registered_with_order, created_at) FROM '/csv/users_data.csv' CSV HEADER;
 
 COPY events (id, identifier, name, starts_at, ends_at, timezone, online, latitude, longitude, stream_loop,
@@ -25,3 +25,12 @@ COPY discount_codes (id, code, discount_url, value, type, is_active, tickets_num
                           valid_till, event_id, created_at, marketer_id, used_for) FROM '/csv/discount_codes_data.csv' CSV HEADER;
 
 COPY discount_codes_tickets (discount_code_id, ticket_id) FROM '/csv/discount_codes_tickets_data.csv' CSV HEADER;
+
+-- Update table's sequences
+
+SELECT pg_catalog.setval('public.users_id_seq', 351, true);
+SELECT pg_catalog.setval('public.events_id_seq', 1501, true);
+SELECT pg_catalog.setval('public.users_events_roles_id_seq', 1501, true);
+SELECT pg_catalog.setval('public.tickets_id_seq', 4501, true);
+SELECT pg_catalog.setval('public.custom_forms_id_seq', 1501, true);
+SELECT pg_catalog.setval('public.discount_codes_id_seq', 6001, true);
